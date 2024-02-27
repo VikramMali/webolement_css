@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# Cache manifest version 0.0.2
+
+css/style.css
+css/normalize.css
+css/animate.min.css
+css/layout.css
+css/webolement.css
+
+apple-touch-icon.png
+favicon-32x32.png
+favicon-16x16.png
+css/style.css
+js/helper.js?v=2
+js/webolementjs.js
+components.js
+js/roots.js
+js/router.js

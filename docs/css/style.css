@@ -1,0 +1,219 @@
+@import "/css/normalize.css";
+@import "/css/animate.min.css";
+
+@import "/css/layout.css";
+@import "/css/webolement.css";
+
+.otp-input-holder {
+    margin: auto;
+    max-width: 100%;
+    width: fit-content;
+    height: 2em;
+    font-size: 1.2rem;
+}
+
+.otp-input-holder input {
+    border: none !important;
+    outline: none !important;
+    background: transparent;
+    caret-color: transparent;
+    letter-spacing: 1.19em;
+    width: 11.4em;
+    padding: 0;
+    padding-left: 1.7em;
+}
+
+.otp-input-holder .otp-flex {
+    order: none !important;
+    height: 2em;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.2em;
+    flex-direction: row;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: -2em;
+}
+
+.otp-input-holder .otp-box {
+    width: 0.1em;
+    border-radius: 0.5rem;
+    padding: 0.7em !important;
+    border: 1px solid var(--sub-text-color);
+    background: var(--bg-color);
+}
+
+.otp-input-holder .otp-box.active {
+    outline: 2px solid var(--primary-base);
+}
+
+.responsive-form>.flex>input,
+.responsive-form>.flex>.flex-1,
+.responsive-form>.flex>select,
+.responsive-form>.flex>.input,
+.responsive-form img,
+.responsive-form>.flex>label {
+    min-width: calc(250px - 2em);
+    max-width: 100%;
+    flex: 1;
+}
+
+.logo {
+    max-height: 2rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5em;
+}
+
+.logo.big {
+    max-height: 4rem;
+    border-radius: 1em;
+}
+
+.employee-counter-box-holder {
+    display: flex;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.employee-counter-box-holder .counter-box {
+    flex: 1;
+    padding: 0.5em 0;
+    min-width: 0;
+    font-size: 0.875rem;
+    border-radius: 0;
+}
+
+.counter-box-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1em;
+    padding: 1em;
+    flex-wrap: wrap;
+}
+
+.counter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-light);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    min-width: 90px;
+    box-shadow: 0px 0px 8px 0px rgba(20, 20, 20, 0.08), 0px 0px 1px 0px rgba(20, 20, 20, 0.04);
+}
+
+.counter-box * {
+    margin: 0;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    padding-bottom: 1em;
+}
+
+.calendar-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+}
+
+.calendar .day {
+    cursor: pointer;
+    height: calc(100vw / 9);
+    color: var(--text-color);
+    font-size: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5em;
+    background: var(--bg-color);
+    box-shadow: 0px 0px 8px 0px var(--sub-text-color), 0px 0px 1px 0px var(--sub-text-color);
+}
+
+.calendar-week .day {
+    overflow: hidden;
+    text-overflow: clip;
+    text-align: center;
+    justify-content: center;
+}
+
+.present {
+    background-color: var(--success) !important;
+    border-color: var(--success) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.absent {
+    background-color: var(--error) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.half-day {
+    background-color: var(--warning) !important;
+    color: #000 !important;
+    box-shadow: none !important;
+}
+
+.approved-leave {
+    background-color: var(--text-color) !important;
+    color: var(--bg-color) !important;
+    box-shadow: none !important;
+}
+
+.holiday {
+    background-color: var(--sub-text-color) !important;
+    color: var(--bg-color) !important;
+    box-shadow: none !important;
+}
+
+.requested-leave{
+    background-color: #cc82ee !important;
+    border-color: #cc82ee !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.day.invalid{
+    color: var(--sub-text-color) !important;
+}
+
+.day-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5em;
+    background: var(--bg-color);
+    box-shadow: 0px 0px 8px 0px var(--text-color), 0px 0px 1px 0px var(--text-color);
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 0.2rem;
+    border: 1px solid var(--sub-text-color);
+    font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .calendar,
+    .calendar-week {
+        max-width: 704px;
+        margin: auto;
+    }
+
+    .calendar-week .day {
+        width: 85.3281px;
+    }
+    .calendar .day {
+        height: 85.3281px;
+        width: 85.3281px;
+        font-size: 38.4px;
+    }
+}

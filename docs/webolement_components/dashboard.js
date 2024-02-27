@@ -1,0 +1,105 @@
+
+    window.addMyCustomeElement('dashboard-div', class extends Webolement {
+        getContent() { return `
+    <div if="tab=='dashboard'">
+        <nav style="position: sticky;top: -53px;background: var(--bg-color);padding: 1em 1em 0 1em;">
+            <div class="flex row middle">
+                <img :src="CurrentOrganization.Logo" alt="" class="logo">
+                <h3 class="flex-1" style="margin: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"
+                    :text="CurrentOrganization.Name">
+                    Kumar Enterprises Pvt. Ltd.
+                </h3>
+                <a href="/account_settings">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.9454 6.83491L16.3204 7.48443V7.48443L15.9454 6.83491ZM18.6774 7.56696L19.3269 7.19196V7.19196L18.6774 7.56696ZM19.1774 8.43299L18.5279 8.80799L19.1774 8.43299ZM18.4454 11.165L18.8204 11.8146L18.4454 11.165ZM18.4454 12.8349L18.0704 13.4844L18.4454 12.8349ZM19.1774 15.567L19.827 15.942L19.1774 15.567ZM18.6774 16.433L18.0279 16.058L18.6774 16.433ZM15.9454 17.165L16.3204 16.5155L15.9454 17.165ZM8.05307 17.165L7.67807 16.5155H7.67807L8.05307 17.165ZM5.32102 16.433L5.97054 16.058H5.97054L5.32102 16.433ZM4.82102 15.567L4.1715 15.942H4.1715L4.82102 15.567ZM5.55307 12.8349L5.17807 12.1854H5.17807L5.55307 12.8349ZM5.55309 11.165L5.17809 11.8146H5.17809L5.55309 11.165ZM4.82104 8.43299L4.17152 8.05799H4.17152L4.82104 8.43299ZM5.32104 7.56696L5.97056 7.94196L5.32104 7.56696ZM8.05309 6.83491L7.67809 7.48443L8.05309 6.83491ZM11.4991 3.25C9.98036 3.25 8.74914 4.48122 8.74914 6H10.2491C10.2491 5.30964 10.8088 4.75 11.4991 4.75V3.25ZM12.4991 3.25H11.4991V4.75H12.4991V3.25ZM15.2491 6C15.2491 4.48122 14.0179 3.25 12.4991 3.25V4.75C13.1895 4.75 13.7491 5.30964 13.7491 6H15.2491ZM19.3269 7.19196C18.5676 5.87666 16.8857 5.426 15.5704 6.18539L16.3204 7.48443C16.9182 7.13925 17.6827 7.3441 18.0279 7.94196L19.3269 7.19196ZM19.8269 8.05799L19.3269 7.19196L18.0279 7.94196L18.5279 8.80799L19.8269 8.05799ZM18.8204 11.8146C20.1357 11.0552 20.5863 9.37329 19.8269 8.05799L18.5279 8.80799C18.8731 9.40585 18.6682 10.1703 18.0704 10.5155L18.8204 11.8146ZM19.827 15.942C20.5864 14.6267 20.1357 12.9448 18.8204 12.1854L18.0704 13.4844C18.6683 13.8296 18.8731 14.5941 18.5279 15.192L19.827 15.942ZM19.327 16.808L19.827 15.942L18.5279 15.192L18.0279 16.058L19.327 16.808ZM15.5704 17.8146C16.8857 18.5739 18.5676 18.1233 19.327 16.808L18.0279 16.058C17.6828 16.6559 16.9183 16.8607 16.3204 16.5155L15.5704 17.8146ZM12.4991 20.75C14.0179 20.75 15.2491 19.5188 15.2491 18H13.7491C13.7491 18.6904 13.1895 19.25 12.4991 19.25V20.75ZM11.4991 20.75H12.4991V19.25H11.4991V20.75ZM8.74914 18C8.74914 19.5188 9.98036 20.75 11.4991 20.75V19.25C10.8088 19.25 10.2491 18.6904 10.2491 18H8.74914ZM4.6715 16.808C5.43089 18.1233 7.11276 18.574 8.42807 17.8146L7.67807 16.5155C7.0802 16.8607 6.31571 16.6559 5.97054 16.058L4.6715 16.808ZM4.1715 15.942L4.6715 16.808L5.97054 16.058L5.47054 15.192L4.1715 15.942ZM5.17807 12.1854C3.86276 12.9448 3.41211 14.6267 4.1715 15.942L5.47054 15.192C5.12536 14.5941 5.3302 13.8296 5.92807 13.4844L5.17807 12.1854ZM4.17152 8.05799C3.41213 9.37329 3.86279 11.0552 5.17809 11.8146L5.92809 10.5155C5.33023 10.1703 5.12538 9.40585 5.47056 8.80799L4.17152 8.05799ZM4.67152 7.19196L4.17152 8.05799L5.47056 8.80799L5.97056 7.94196L4.67152 7.19196ZM8.42809 6.18539C7.11279 5.426 5.43091 5.87666 4.67152 7.19196L5.97056 7.94196C6.31574 7.3441 7.08023 7.13925 7.67809 7.48443L8.42809 6.18539ZM7.67809 7.48443C8.82082 8.14419 10.2491 7.31942 10.2491 6H8.74914C8.74914 6.16481 8.57074 6.26775 8.42809 6.18539L7.67809 7.48443ZM5.92807 13.4844C7.07077 12.8247 7.07085 11.1753 5.92809 10.5155L5.17809 11.8146C5.32079 11.8969 5.32083 12.103 5.17807 12.1854L5.92807 13.4844ZM10.2491 18C10.2491 16.6806 8.82085 15.8557 7.67807 16.5155L8.42807 17.8146C8.57069 17.7322 8.74914 17.8351 8.74914 18H10.2491ZM16.3204 16.5155C15.1777 15.8558 13.7491 16.6804 13.7491 18H15.2491C15.2491 17.8352 15.4276 17.7321 15.5704 17.8146L16.3204 16.5155ZM18.0704 10.5155C16.9276 11.1753 16.9277 12.8247 18.0704 13.4844L18.8204 12.1854C18.6776 12.103 18.6777 11.8969 18.8204 11.8146L18.0704 10.5155ZM13.7491 6C13.7491 7.31962 15.1777 8.14415 16.3204 7.48443L15.5704 6.18539C15.4275 6.26785 15.2491 6.16473 15.2491 6H13.7491ZM13.431 11.9999C13.431 12.7907 12.79 13.4318 11.9992 13.4318V14.9318C13.6184 14.9318 14.931 13.6191 14.931 11.9999H13.431ZM11.9992 13.4318C11.2084 13.4318 10.5674 12.7907 10.5674 11.9999H9.06738C9.06738 13.6191 10.38 14.9318 11.9992 14.9318V13.4318ZM10.5674 11.9999C10.5674 11.2092 11.2084 10.5681 11.9992 10.5681V9.06812C10.38 9.06812 9.06738 10.3807 9.06738 11.9999H10.5674ZM11.9992 10.5681C12.79 10.5681 13.431 11.2092 13.431 11.9999H14.931C14.931 10.3807 13.6184 9.06812 11.9992 9.06812V10.5681Z"
+                            fill="currentColor" />
+                    </svg>
+                </a>
+            </div>
+            <div class="flex column" style="width: 100%;">
+                <p>Welcome, 
+                    
+                    <span :text="CurrentUser.Name"></span> <span class="sub mute"
+                        if="CurrentOrganization.OwnerID == CurrentUser.ID">(Owner)</span> </p>
+                <p if="CurrentEmployee" class="sub mute">
+                    (<span :text="CurrentEmployee.Position"></span> <span if="CurrentBranch" :text="'@ '+CurrentBranch.Name"></span>)
+                </p>
+            </div>
+        </nav>
+        <div class="p-1" style="padding-bottom: 100px;">
+            <notification-access></notification-access>
+            <today-status></today-status>
+        </div>
+    </div>
+    <employees-div if="tab=='employees'"></employees-div>
+    <div class="bottom-bar">
+        <a :class="tab=='dashboard'?'active':''" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                    d="M1.00001 8C1.00001 7.37049 1.2964 6.77771 1.80001 6.4L7.80001 1.9C8.51112 1.36667 9.4889 1.36667 10.2 1.9L16.2 6.4C16.7036 6.77771 17 7.37049 17 8V14C17 15.6569 15.6569 17 14 17H4C2.34314 17 0.999998 15.6569 1 14L1.00001 8Z"
+                    stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            Home
+        </a>
+        <a :class="tab=='employees'?'active':''" href="/employees">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                    d="M16.6593 16.5C16.6593 16.5 16.999 15.748 16.999 15C16.999 13.8403 16.499 13 15.499 12.5M12.999 7.88931C14.1763 7.37495 14.9991 6.20022 14.9991 4.83333C14.9991 3.46645 14.1763 2.29172 12.999 1.77735M10.699 4.83333C10.699 6.67428 9.20666 8.16667 7.36571 8.16667C5.52476 8.16667 4.03238 6.67428 4.03238 4.83333C4.03238 2.99238 5.52476 1.5 7.36571 1.5C9.20666 1.5 10.699 2.99238 10.699 4.83333ZM7.26154 11.8125C10.447 11.8125 12.4298 13.2075 13.3735 14.1016C13.8121 14.5171 13.8445 15.1673 13.5483 15.6938C13.2682 16.1918 12.7413 16.5 12.1699 16.5H2.58748C2.00006 16.5 1.45832 16.1832 1.17033 15.6712C0.879641 15.1544 0.895407 14.5184 1.31226 14.0967C2.19631 13.2025 4.08186 11.8125 7.26154 11.8125Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Employees
+        </a>
+    </div>
+` }
+        getData() {
+            return {
+                tab: "dashboard",
+                CurrentDevice: false,
+                CurrentUser: false,
+                CurrentOrganization: false,
+                CurrentEmployee: false,
+                CurrentBranch: false,
+                Today: new Date(),
+                FormattedDate: "",
+            }
+        }
+        on__load() {
+            if (window.WebolementApp.CurrentDevice) {
+                this.data.CurrentDevice = JSON.parse(JSON.stringify(window.WebolementApp.CurrentDevice))
+            }
+            if (window.WebolementApp.CurrentUser) {
+                this.data.CurrentUser = JSON.parse(JSON.stringify(window.WebolementApp.CurrentUser))
+            }
+            if (window.WebolementApp.CurrentOrganization) {
+                this.data.CurrentOrganization = JSON.parse(JSON.stringify(window.WebolementApp.CurrentOrganization))
+            }
+            if (window.WebolementApp.CurrentEmployee) {
+                this.data.CurrentEmployee = JSON.parse(JSON.stringify(window.WebolementApp.CurrentEmployee))
+            }
+            if (window.WebolementApp.CurrentBranch) {
+                this.data.CurrentBranch = JSON.parse(JSON.stringify(window.WebolementApp.CurrentBranch))
+            }
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+            // Format the date using the "en-US" locale
+            this.data.FormattedDate = today.toLocaleDateString('en-IN', options);
+
+            if (location.pathname.includes("dashboard")) {
+                this.data.tab = "dashboard"
+            } else if (location.pathname.includes("employees")) {
+                this.data.tab = "employees"
+            }
+            console.log(this.data.tab)
+        }
+        onsubmit(e) {
+            e.preventDefault()
+            e.stopPropagation()
+            if (this.data.submited) {
+                window.webe_navigate("/employes")
+            } else {
+                this.data.submited = true
+            }
+        }
+    });

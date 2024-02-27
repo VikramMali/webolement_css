@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webolement</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Webolement">
+    <meta name="apple-mobile-web-app-title" content="Webolement">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="theme-color" content="#6B4EFF">
+    <script>
+        defaultStyle = "/css/style.css"
+    </script>
+    <script src="/js/helper.js"></script>
+    <script src="/js/webolementjs.js"></script>
+    <script type="module" src="/components.js" version="1"></script>
+    <script type="module" src="/webolement_components.js" version="1"></script>
+    <script src="/js/ws.js"></script>
+    <script type="module" src="/components.js"></script>
+    <script src="/js/roots.js"></script>
+    <script src="/js/router.js"></script>
+</head>
+
+<body>
+    <app-body></app-body>
+    <script>
+        var theme_name = localStorage.getItem("theme_name")
+        if (!theme_name) {
+            theme_name = "system"
+        }
+        setTheme(theme_name)
+    </script>
+</body>
+
+</html>

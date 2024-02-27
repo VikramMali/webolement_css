@@ -1,0 +1,284 @@
+
+    window.addMyCustomeElement('modal-view', class extends Webolement {
+        getContent() { return `
+    <style>
+        /* Modal */
+        .modal-holder {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 11;
+            transition: bottom 0.5s;
+        }
+
+        .modal-bg {
+            position: fixed;
+            background-color: #88888888;
+            backdrop-filter: blur(2px);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .modal-content {
+            margin: auto;
+            padding: 1em;
+            position: relative;
+            background: var(--bg-color);
+            border-radius: 0.5em;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: auto;
+            z-index: 1;
+            width: fit-content;
+            --animate-duration: 0.5s;
+        }
+
+        .modal-holder.closed .modal-bg {
+            display: none;
+        }
+
+        .modal-holder.open .modal-bg {
+            display: flex;
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        .modal-holder.closed {
+            bottom: -100vh;
+        }
+
+        .modal-holder.open {
+            bottom: 0;
+        }
+
+        .modal-content.animated {
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 1s;
+            animation-name: animatetop;
+            animation-duration: 1s
+        }
+
+        .modal-content.from_bottom {
+            margin-bottom: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .modal-content.from_top {
+            margin-top: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .modal-content.from_left {
+            margin-left: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .modal-content.from_right {
+            margin-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .modal-content.full_screen {
+            height: calc(100% - 2em);
+            width: calc(100% - 2em);
+            border-radius: 0;
+        }
+
+        .modal-content>.modal-close {
+            align-self: end;
+        }
+
+        .modal-content.from_bottom.full_width,
+        .modal-content.from_top.full_width {
+            width: 100%;
+        }
+
+        .modal-content.from_left.full_width,
+        .modal-content.from_right.full_width {
+            height: 100%;
+        }
+
+        /* Modal */
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+
+
+        /* Add Animation */
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatebottom {
+            from {
+                bottom: -300px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        .delete,
+        .modal-close {
+            position: relative;
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+            background: none !important;
+            border: none;
+        }
+
+        .modal-close::after {
+            height: 50%;
+            width: 2px;
+        }
+
+        .modal-close::before {
+            height: 2px;
+            width: 50%;
+        }
+
+        .modal-close::after,
+        .modal-close::before {
+            background-color: var(--text-color);
+            content: "";
+            display: block;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            transform-origin: center center;
+        }
+
+        /* Modal */
+    </style>
+    <div if="isopen" ref="modal_holder" class="modal-holder">
+        <div class="modal-bg" @click="close_modal" tabindex="1"></div>
+        <div class="modal-content shadow-s" :class="getClass(isopen, model_class)">
+            <div class="flex">
+                <span style="flex: 1;"></span>
+                <button if="closable" type="button" class="modal-close" @click="close_modal"></button>
+            </div>
+            <slot>
+                <p>Sample text in the Modal..</p>
+            </slot>
+        </div>
+    </div>
+` }
+        static get observedAttributes() { return ["value", "closable", "model_class"]; }
+        constructor() {
+            super();
+        }
+        getClass(isopen, model_class) {
+            var class_to_return = ""
+            if (isopen) {
+                if (model_class.includes("from_bottom")) {
+                    class_to_return = "animate__animated animate__slideInUp"
+                }
+                if (model_class.includes("from_top")) {
+                    class_to_return = "animate__animated animate__slideInDown"
+                }
+                if (model_class.includes("from_left")) {
+                    class_to_return = "animate__animated animate__slideInLeft"
+                }
+                if (model_class.includes("from_right")) {
+                    class_to_return = "animate__animated animate__slideInRight"
+                }
+            } else {
+                class_to_return = ""
+            }
+            return class_to_return + " " + model_class
+        }
+        close_modal(event, override) {
+            if (this.data.closable || override) {
+                this.data.isopen = false
+                var event = new Event('closed', {
+                    data: false,
+                    bubbles: true,
+                    cancelable: true,
+                });
+                this.dispatchEvent(event);
+            }
+        }
+        open_modal(event) {
+            this.data.isopen = true
+            var event = new Event('opened', {
+                data: true,
+                bubbles: true,
+                cancelable: true,
+            });
+            this.dispatchEvent(event);
+        }
+        getData() {
+            return {
+                error: false,
+                success: false,
+                closable: true,
+                isopen: false,
+                model_class: "",
+            }
+        }
+        attributeChangedCallback(name, oldValue, newValue) {
+            switch (name) {
+                case "value":
+                    if (newValue) {
+                        this.open_modal()
+                    } else {
+                        this.close_modal(null, true)
+                    }
+                    break;
+                case "closable":
+                    this.data.closable = !!newValue
+                    break;
+                case "model_class":
+                    this.data.model_class = newValue
+                    break;
+                default:
+                    break;
+            }
+        }
+    });

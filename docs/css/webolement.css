@@ -1,0 +1,509 @@
+@font-face {
+    font-family: Inter;
+    src: url(/fonts/inter.ttf);
+}
+
+:root {
+    --error: #ff1100;
+    --success: green;
+    --warning: #ffff00;
+    --text-color: #2d2d2d;
+    --sub-text-color: #a2a2a2;
+    --bg-color: #ffffff;
+    /* --sub-bg-color: #9e9a9f1a;  */
+    --sub-bg-color: #E3E5E5;
+}
+
+.dark {
+    --text-color: #ffffff;
+    --sub-text-color: #ffffff7a;
+    --bg-color: #232627;
+    --sub-bg-color: #151819;
+}
+
+:root{
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    transition: 0.3s;
+
+    --primary-light: #7db03153;
+    --primary-base: #7eb031;
+    --primary-dark: #679127;
+
+    /* --primary-light: #3f98ffa8;
+    --primary-base: #005fcd;
+    --primary-dark: #014797; */
+
+    --primary-text-color: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+p{
+    margin: 0.3em;
+}
+
+a {
+    display: flex;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+a,
+a:focus,
+a:focus-within,
+a:hover,
+a:visited {
+    color: var(--text-color);
+}
+
+label,
+input,
+button,
+select,
+.button {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    height: calc(2em + 2px);
+    align-items: center;
+    overflow: hidden;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border-color: var(--sub-text-color);
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+label {
+    font-weight: 400;
+}
+
+label.big,
+input.big,
+button.big,
+select.big,
+.button.big {
+    height: calc(3em + 2px);
+}
+
+.bold{
+    font-weight: 400;
+}
+
+input,
+.input,
+button,
+select,
+.button {
+    border: 1px solid var(--sub-text-color);
+    border-radius: 0.3em;
+    padding: 0 1em;
+}
+
+.round {
+    border-radius: 2em;
+}
+.round-sm{
+    border-radius: 1em;
+}
+
+input, select {
+    height: 2em;
+}
+
+input.big, select.big {
+    height: 3em;
+}
+
+input:focus, select:focus  {
+    outline: 2px solid var(--primary-base);
+    border-color: transparent;
+}
+
+input[type="radio"],
+input[type="checkbox"],
+input[type="range"] {
+    outline: none !important;
+}
+
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="date"],
+input[type="time"] {
+    line-height: 1.152;
+}
+
+input[type="color"] {
+    padding: 0;
+}
+
+input[type="file"] {
+    border-color: transparent;
+}
+
+button,
+.button,
+a.button,
+input[type="submit"] {
+    justify-content: center;
+    color: var(--primary-text-color);
+    background: var(--primary-base);
+    border: 1px solid var(--primary-base);
+    padding: 0 2em;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+button.fab, .button.fab {
+    width: calc(2.125em);
+    padding: 0;
+}
+
+button.fab.big, .button.fab.big {
+    width: calc(3em + 2px);
+}
+
+button:focus,
+button:hover,
+button:checked,
+.button:focus,
+.button:hover,
+.button:checked,
+input[type="submit"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:checked {
+    background-color: var(--primary-dark);
+}
+
+button.secondary,
+.button.secondary,
+input[type="submit"].secondary {
+    background: var(--primary-light);
+}
+
+button.secondary:focus,
+button.secondary:hover,
+button.secondary:checked,
+.button.secondary:focus,
+.button.secondary:hover,
+.button.secondary:checked,
+input[type="submit"].secondary:focus,
+input[type="submit"].secondary:hover,
+input[type="submit"].secondary:checked {
+    background-color: var(--primary-base);
+}
+
+button.outline,
+.button.outline,
+input[type="submit"].outline {
+    background: none;
+    color: var(--text-color);
+}
+
+button.outline:focus,
+button.outline:hover,
+button.outline:checked,
+button.outline.active,
+.button.outline:focus,
+.button.outline:hover,
+.button.outline:checked,
+.button.outline.active,
+input[type="submit"].outline:focus,
+input[type="submit"].secondary:hover,
+input[type="submit"].secondary:checked {
+    background-color: var(--primary-light);
+}
+
+button.link,
+.button.link,
+input[type="submit"].link {
+    background: none;
+    color: var(--primary-base);
+    border-color: transparent;
+}
+
+button.link:focus,
+button.link:hover,
+button.link:checked,
+.button.link:focus,
+.button.link:hover,
+.button.link:checked,
+input[type="submit"].link:focus,
+input[type="submit"].secondary:hover,
+input[type="submit"].secondary:checked {
+    background-color: var(--primary-light);
+    color: var(--primary-text-color);
+}
+button.loading, .button.loading{
+    padding-left: 1em;
+    padding-right: 3em;
+}
+button.loading::after, .button.loading::after{
+    content: " ";
+    border-radius: 50%;
+    border: 0.2em solid currentColor;
+    border-left-color: transparent;
+    height: 1em;
+    width: 1em;
+    margin-right: -2em;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+
+}
+
+*:disabled {
+    background: var(--sub-bg-color) !important;
+    border-color: transparent !important;
+    color: var(--sub-text-color) !important;
+}
+
+.mute {
+    color: var(--sub-text-color);
+}
+
+.sub {
+    font-size: 0.8em;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+.snackbar {
+    position: absolute;
+    bottom: 2em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    visibility: hidden;
+    width: max-content;
+    max-width: calc(100vw - 2em);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 1em;
+    z-index: 99;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+.snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.sticky{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--bg-color);
+    padding: 1em;
+}
+
+.step label{
+    text-align: center;
+}
+.step{
+    position: relative;
+    overflow: visible;
+}
+.step::after{
+    content: " ";
+    position: absolute;
+    top: 1em;
+    width: calc(100% - 2.1em);
+    left: calc(50% + 1em);
+    border: 1px solid var(--sub-text-color);
+}
+.step.pass button{
+    background-color: var(--success);
+    border-color: var(--success);
+}
+.step.pass label{
+    color: var(--success);
+}
+.step.pass::after{
+    content: " ";
+    border: 1px solid var(--success);
+}
+.step:last-child::after{
+    content: none;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    display: flex;
+    width: auto;
+    height: 2em;
+    align-items: center;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.switch .slider {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 3em;
+    height: 1em;
+    background-color: var(--sub-text-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switch .slider:before {
+    display: flex;
+    align-items: center;
+    content: "";
+    display: block;
+    height: 1.5em;
+    width: 1.5em;
+    background-color: var(--primary-base);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switch input:checked+.slider {
+    background-color: var(--primary-base);
+}
+
+.switch input:focus+.slider {
+    box-shadow: 0 0 1px var(--primary-base);
+}
+
+.switch input:checked+.slider:before {
+    -webkit-transform: translateX(1.5em);
+    -ms-transform: translateX(1.5em);
+    transform: translateX(1.5em);
+}
+
+/* Rounded sliders */
+.switch .slider.round {
+    border-radius: 1em;
+}
+
+.slider.round:before {
+    border-radius: 2em;
+}
+
+.bottom-bar {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0;
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    background: var(--bg-color);
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+    box-shadow: 0px 10px 24px 8px var(--sub-text-color);
+}
+
+.bottom-bar a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    color: inherit;
+    flex: 1;
+    gap: 0.3em;
+}
+
+.bottom-bar .active {
+    color: var(--primary-base) !important;
+}
+
+.list-card {
+    max-width: 100%;
+    width: 350px;
+    min-width: 250px;
+    flex: 1;
+}
+
+.error-text{
+    color: var(--error);
+}
+.error{
+    background-color: var(--error) !important;
+    color: #fff !important;
+    border-color: var(--error) !important;
+}
+
+.success-text{
+    color: var(--success);
+}
+.success{
+    background-color: var(--success) !important;
+    color: #fff !important;
+    border-color: var(--success) !important;
+}

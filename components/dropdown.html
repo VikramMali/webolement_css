@@ -1,0 +1,89 @@
+<template>
+    <div class="dropdown-holder">
+        <button :text="label"></button>
+        <div>
+            <slot>
+                <div for-loop="items.length">
+                        <label for="" :text="items[index]"></label>
+                </div>
+            </slot>
+        </div>
+    </div>
+</template>
+<script>
+    window.addMyCustomeElement('dropdown-view', class extends Webolement {
+        getContent() { return `{{{template}}}` }
+        static get observedAttributes() { return ["label"]; }
+        constructor() {
+            super();
+        }
+        getClass(isopen, model_class) {
+            var class_to_return = ""
+            if (isopen) {
+                if (model_class.includes("from_bottom")) {
+                    class_to_return = "animate__animated animate__slideInUp"
+                }
+                if (model_class.includes("from_top")) {
+                    class_to_return = "animate__animated animate__slideInDown"
+                }
+                if (model_class.includes("from_left")) {
+                    class_to_return = "animate__animated animate__slideInLeft"
+                }
+                if (model_class.includes("from_right")) {
+                    class_to_return = "animate__animated animate__slideInRight"
+                }
+            } else {
+                class_to_return = ""
+            }
+            return class_to_return + " " + model_class
+        }
+        close_modal(event, override) {
+            if (this.data.closable || override) {
+                this.data.isopen = false
+                var event = new Event('closed', {
+                    data: false,
+                    bubbles: true,
+                    cancelable: true,
+                });
+                this.dispatchEvent(event);
+            }
+        }
+        open_modal(event) {
+            this.data.isopen = true
+            var event = new Event('opened', {
+                data: true,
+                bubbles: true,
+                cancelable: true,
+            });
+            this.dispatchEvent(event);
+        }
+        getData() {
+            return {
+                error: false,
+                success: false,
+                closable: true,
+                isopen: false,
+                model_class: "",
+            }
+        }
+        attributeChangedCallback(name, oldValue, newValue) {
+            switch (name) {
+                case "value":
+                    if (newValue) {
+                        this.open_modal()
+                    } else {
+                        this.close_modal(null, true)
+                    }
+                    break;
+                case "closable":
+                    this.data.closable = !!newValue
+                    break;
+                case "model_class":
+                    this.data.model_class = newValue
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+</script>
