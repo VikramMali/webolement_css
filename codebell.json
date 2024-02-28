@@ -1,0 +1,22 @@
+{
+ "ServerFolder": "docs",
+ "WebelementFolders": [
+  {
+   "CodeFolder": "components",
+   "CompiledFolder": "docs/components",
+   "ComponentsFilePath": "docs/components.js",
+   "FullContent": ""
+  },
+  {
+   "CodeFolder": "webolement_components",
+   "CompiledFolder": "docs/webolement_components",
+   "ComponentsFilePath": "docs/webolement_components.js",
+   "FullContent": ""
+  }
+ ],
+ "MinifyHTML": false,
+ "MinifyJS": true,
+ "ServerPort": "80",
+ "User": "9763429023",
+ "Password": "Password@123"
+}

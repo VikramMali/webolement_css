@@ -1,11 +1,8 @@
 
     window.addMyCustomeElement('home-div', class extends Webolement {
         getContent() { return `
-    <dashboard-div if="CurrentOrganization && CurrentOrganization.OwnerID == CurrentUser.ID"></dashboard-div>
-    <employee-dashboard if="CurrentOrganization && CurrentOrganization.OwnerID != CurrentUser.ID && CurrentEmployee && CurrentEmployee.ID"></employee-dashboard>
-    <div if="!CurrentOrganization" class="flex column center middle g-1 vh100">
-        Are you an Employer and want to manage attendance of employees of your organisetion?
-        <button @click="CreateOrganization">Click here to Create an Organisetion</button>
+    <div>
+        <h1>Home Page</h1>
     </div>
 ` }
         getData() {

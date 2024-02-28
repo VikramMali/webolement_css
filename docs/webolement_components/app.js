@@ -3,6 +3,12 @@
     const cs = getComputedStyle(ele);
     window.addMyCustomeElement('app-body', class extends Webolement {
         getContent() { return `
+    <ul>
+        <li><a href="/">launcher</a></li>
+        <li><a href="/test">test page</a></li>
+        <li><a href="/home">home page</a></li>
+        <li><a href="/user">user page</a></li>
+    </ul>
     <router-view></router-view>
     <modal-view :value="NeedReset" :closable="false" @closed="model_closed">
         <div style="display: flex;justify-content: center;text-align: center;flex-direction: column;">
